@@ -28,46 +28,7 @@ fun LoginScreen() {
     var passwordInput by remember { mutableStateOf(TextFieldValue("")) }
     Column {
         LottieAnimationWidget(R.raw.auth_login)
-//         input email
-        OutlinedTextField(
-            value = emailInput,
-            onValueChange = { emailInput = it },
-            maxLines = 1, // makes sure that the text only occupies one line
-            leadingIcon = {
-                Icon(
-                    imageVector = Icons.Filled.Email,
-                    contentDescription = "Email"
-                )
-            },
-            shape = RoundedCornerShape(24.dp),
-            placeholder = { Text(text = "eg johndoe@example.com") },
-            modifier = Modifier.fillMaxWidth()
-        )
-//         input password
-        OutlinedTextField(
-            value = passwordInput,
-            onValueChange = { passwordInput = it },
-            maxLines = 1, // makes sure that the text only occupies one line
-            leadingIcon = {
-                Icon(
-                    imageVector = ImageVector.vectorResource(R.drawable.password_24),
-                    contentDescription = "password"
-                )
-            },
-            trailingIcon = {
-                Icon(
-                    imageVector = ImageVector.vectorResource(R.drawable.outline_visibility_24),
-                    contentDescription = "view password"
-                )
-            },
-            shape = RoundedCornerShape(24.dp),
-            placeholder = { Text(text = "********") },
-            visualTransformation = PasswordVisualTransformation(),
-            modifier = Modifier.fillMaxWidth()
-        )
 
-//         button
-    }
 }
 
 

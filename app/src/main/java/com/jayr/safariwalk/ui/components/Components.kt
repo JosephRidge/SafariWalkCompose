@@ -11,16 +11,16 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 
-@Composable
-fun LottieAnimationWidget(drawable:Int){
-    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(drawable))
-    val progress by animateLottieCompositionAsState(
-        composition,
-        iterations = LottieConstants.IterateForever
-        )
-    LottieAnimation(
-        composition = composition,
-        progress = { progress },
-        modifier = Modifier.size(250.dp)
-    )
-}
+//@Composable
+//fun LottieAnimationWidget(drawable:Int){
+//    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(drawable))
+//    val progress by animateLottieCompositionAsState(
+//        composition,
+//        iterations = LottieConstants.IterateForever
+//        )
+//    LottieAnimation(
+//        composition = composition,
+//        progress = { progress },
+//        modifier = Modifier.size(250.dp)
+//    )
+//}
