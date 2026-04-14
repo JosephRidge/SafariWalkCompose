@@ -12,7 +12,9 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,9 +23,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -34,6 +39,8 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.jayr.safariwalk.R
+import com.jayr.safariwalk.ui.theme.greenColor
+import com.jayr.safariwalk.ui.theme.primaryColor
 import java.nio.file.WatchEvent
 
 @Composable
@@ -65,15 +72,51 @@ fun LoginScreen() {
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Filled.Email,
-                    contentDescription = "Email"
+                    contentDescription = "Email",
+                    tint = greenColor
                 )
             },
             shape = RoundedCornerShape(24.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = greenColor,
+                unfocusedBorderColor = primaryColor
+            ),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
             modifier = Modifier.fillMaxWidth()
         )
-//        password input
+        Spacer(modifier = Modifier.height(20.dp))
 
+//        password input
+        OutlinedTextField(
+            value = passwordInput,
+            onValueChange={ passwordInput = it },
+            leadingIcon = {
+                Icon(
+                    imageVector = ImageVector.vectorResource(R.drawable.outline_password_24),
+                    contentDescription = "Password",
+                    tint = greenColor
+                )
+            },
+            trailingIcon = {
+              IconButton(
+                  onClick = {}
+              ) {
+                  Icon(
+                      imageVector = ImageVector.vectorResource(R.drawable.outline_visibility_off_24),
+                      contentDescription = "Password",
+                      tint = greenColor
+                  )
+              }
+            },
+            visualTransformation = PasswordVisualTransformation() ,
+            shape = RoundedCornerShape(24.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = greenColor,
+                unfocusedBorderColor = primaryColor
+            ),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+            modifier = Modifier.fillMaxWidth()
+        )
 //        button
 //        text button
     }
