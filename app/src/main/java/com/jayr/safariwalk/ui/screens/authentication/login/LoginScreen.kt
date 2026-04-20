@@ -13,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -33,18 +34,20 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.jayr.safariwalk.R
+import com.jayr.safariwalk.ui.navigation.ROUTES
 import com.jayr.safariwalk.ui.theme.greenColor
 import com.jayr.safariwalk.ui.theme.primaryColor
 import java.nio.file.WatchEvent
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavHostController, modifier: Modifier) {
     var emailInput by remember { mutableStateOf(TextFieldValue("")) }
     var passwordInput by remember { mutableStateOf(TextFieldValue("")) }
 
@@ -118,6 +121,13 @@ fun LoginScreen() {
             modifier = Modifier.fillMaxWidth()
         )
 //        button
+        OutlinedButton(
+            onClick = {
+                navController.navigate(ROUTES.Home.name)
+            }
+        ) {
+            Text(text="go to home page")
+        }
 //        text button
     }
 

@@ -12,6 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.compose.rememberNavController
+import com.jayr.safariwalk.ui.navigation.AppNavigation
 import com.jayr.safariwalk.ui.screens.authentication.login.LoginScreen
 import com.jayr.safariwalk.ui.screens.onboarding.OnboardingScreen
 import com.jayr.safariwalk.ui.theme.SafariWalkTheme
@@ -23,8 +25,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SafariWalkTheme {
+                val navController = rememberNavController()
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    OnboardingScreen()
+                    AppNavigation(navController, modifier = Modifier.padding(innerPadding))
                 }
             }
         }
