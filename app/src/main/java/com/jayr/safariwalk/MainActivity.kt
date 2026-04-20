@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.jayr.safariwalk.ui.screens.authentication.login.LoginScreen
+import com.jayr.safariwalk.ui.screens.onboarding.OnboardingScreen
 import com.jayr.safariwalk.ui.theme.SafariWalkTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             SafariWalkTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    LoginScreen()
+                    OnboardingScreen()
                 }
             }
         }
